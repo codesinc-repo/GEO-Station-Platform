@@ -8,6 +8,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
   <link rel="stylesheet" href="/styles.css">
 </head>
 
@@ -15,7 +18,7 @@
   <section>
     <nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <a id="home" class="navbar-brand d-flex align-items-center" href="#">
           <img src="/assets/logo.png" alt="GeoEstate Logo">
         </a>
 
@@ -27,26 +30,26 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto mx-5 me-5">
             <li class="nav-item px-2">
-              <a class="nav-link" href="#">Characteristics</a>
+              <a class="nav-link" href="#home">Home</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#">Price</a>
+              <a class="nav-link" href="#price">Price</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#">Company</a>
+              <a class="nav-link" href="#company">Company</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#">Blog</a>
+              <a class="nav-link" href="#blog">Blog</a>
             </li>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#contact">Contact</a>
             </li>
           </ul>
 
           <div class="d-flex align-items-center">
             <a href="/signin.html"
               class="text-decoration-none btn btn-outline-dark rounded-pill  btn-access me-2 px-3 py-2">Login</a>
-            <a href="#" class="btn btn-outline-success btn-record me-2 rounded-pill px-3 py-2">Sign Up</a>
+            <a href="/signup.html" class="btn btn-outline-success btn-record me-2 rounded-pill px-3 py-2">Sign Up</a>
           </div>
 
           <div class="dropdown me-2 mt-1">
@@ -72,12 +75,12 @@
     </nav>
   </section>
 
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-8">
-          <h1>The real estate tool that will make you take off</h1>
-          <p>
+          <h1 data-aos="fade-right" data-aos-duration="1000">The real estate tool that will make you take off</h1>
+          <p data-aos="fade-right" data-aos-duration="1000">
             Discover real estate properties from national and international portals under a single application
             Geoestate, the best application for property acquisition and valuation.
           </p>
@@ -149,15 +152,15 @@
     <div class="container content">
       <div class="row align-items-center">
         <div class="col-md-6">
-          <h1 class="title">
+          <h1 class="title" data-aos="fade-right" data-aos-duration="1000">
             Discover properties from multiple portals, geolocated and personalized for you
           </h1>
-          <p class="subtitle">
+          <p class="subtitle" data-aos="fade-right" data-aos-duration="1000">
             All in one dynamic and easy-to-use platform even while you're on the go.
             <br />
             Geoestate is definitely your property acquisition and valuation tool
           </p>
-          <div class="agents">
+          <div class="agents" data-aos="fade-right" data-aos-duration="1000">
             <img alt="Agent 1" height="40"
               src="https://storage.googleapis.com/a1aa/image/jov1tu0eD8UyAiRvBwZiDtOFTecD5fxjjPF89Gq6MopPnUknA.jpg"
               width="40" />
@@ -169,11 +172,11 @@
               width="40" />
             <span>More than 2,000 agents have used it</span>
           </div>
-          <button class="offer-btn">
+          <button class="offer-btn" data-aos="fade-right" data-aos-duration="1000">
             <a class="text-decoration-none text-white" href="./signin.html"> Launch offer at 30%</a>
           </button>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
           <img src="/assets/col-img.png" alt="" class="img-fluid col-img">
         </div>
       </div>
@@ -181,15 +184,15 @@
   </section>
 
   <!-- 4th Section  -->
-  <section>
+  <section id="company">
     <div class="container">
       <div class="section-title">
-        <h2>The complete solution for the real estate market</h2>
-        <p>We make it easy for users to use our platform, which is why we offer this benefit.</p>
+        <h2 data-aos="fade-right" data-aos-duration="1000">The complete solution for the real estate market</h2>
+        <p data-aos="fade-left" data-aos-duration="1000">We make it easy for users to use our platform, which is why we offer this benefit.</p>
       </div>
       <div class="row">
         <div class="col-md-3 col-sm-6 col-12">
-          <div class="feature-box">
+          <div class="feature-box" data-aos="fade-right" data-aos-duration="1000">
             <i class="fas fa-home"></i>
             <h4>Integration with Multiple Portals</h4>
             <p>Access the most complete international and national portfolio of properties from Idealista, Fotocasa,
@@ -197,7 +200,7 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-12">
-          <div class="feature-box">
+          <div class="feature-box" data-aos="fade-left" data-aos-duration="1000">
             <i class="fas fa-map-marker-alt"></i>
             <h4>Advanced Geolocation</h4>
             <p>Explore properties directly on the map and activate the ones you're interested in to easily find them
@@ -205,7 +208,7 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-12">
-          <div class="feature-box">
+          <div class="feature-box" data-aos="fade-right" data-aos-duration="1000">
             <i class="fas fa-sync-alt"></i>
             <h4>Dynamic Interface</h4>
             <p>Enjoy a fluid user experience with an intuitive and adaptable interface that will allow you to easily
@@ -213,7 +216,7 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-12">
-          <div class="feature-box">
+          <div class="feature-box" data-aos="fade-left" data-aos-duration="1000">
             <i class="fas fa-bell"></i>
             <h4>Custom Alerts</h4>
             <p>Receive instant notifications when new properties appear that match your preferences.</p>
@@ -223,77 +226,84 @@
     </div>
   </section>
   <!-- 5th Section  -->
-  <section style="background-color: #33DB4A26;">
+  <section style="background-color: #33DB4A26;" id="price">
     <div class="container p-5">
       <div class="pricing-header">
-        <h1>Choose the best option for you</h1>
-        <p>Choose the no-commitment rate that best suits your needs</p>
+        <h1 data-aos="fade-right" data-aos-duration="1000">Choose the best option for you</h1>
+        <p data-aos="fade-left" data-aos-duration="1000">Choose the no-commitment rate that best suits your needs</p>
       </div>
       <div class="row">
         <div class="col-12 col-md-4 mb-4">
-          <div class="card">
+          <div class="card" data-aos="fade-right" data-aos-duration="1000">
             <div class="card-header">
-              <h2>Standard</h2>
-              <div class="price">79€<span>/month</span></div>
-              <p>(VAT not included)</p>
-              <p>Offer during the first 3 months</p>
+              <h2>Basic User</h2>
+              <div class="price">80€<span>/month</span></div>
+              <p>( For One User )</p>
+              <p>Offer during the first 1 months</p>
             </div>
             <div class="card-body">
               <button class="btn btn-choose">
                 <a class="text-white text-decoration-none" href="./payment.html"> Choose Plan</a>
               </button>
               <ul>
-                <li><i class="fas fa-check"></i>Monthly Payment</li>
-                <li><i class="fas fa-check"></i>30% off during launch</li>
-                <li><i class="fas fa-check"></i>Access to the Balearic Islands database</li>
-                <li><i class="fas fa-check"></i>Limited property listing 5 per month</li>
-                <li><i class="fas fa-check"></i>Limited to 1 user</li>
-                <li><i class="fas fa-check"></i>After 103€/month</li>
+                <li><i class="fas fa-check"></i>Access to a limited database</li>
+                <li><i class="fas fa-check"></i>No advanced geolocation
+                </li>
+                <li><i class="fas fa-check"></i>No buyer management
+                </li>
+                <li><i class="fas fa-check"></i>Cannot mark the map with colors
+                </li>
+                <li><i class="fas fa-check"></i>Cannot create buyer profiles
+                </li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-12 col-md-4 mb-4">
-          <div class="card highlight">
+          <div class="card highlight" data-aos="fade-down" data-aos-duration="1000">
             <div class="card-header">
               <h2>Standard</h2>
-              <div class="price">126€<span>/month</span></div>
-              <p>(VAT not included)</p>
-              <p>Offer during the first 3 months</p>
+              <div class="price">150€<span>/month</span></div>
+              <p>( For Upto Five User )</p>
+              <p>Offer during the first 2 months</p>
             </div>
             <div class="card-body">
-              <button class="btn btn-choose"><a class="text-success text-decoration-none"
-                  href="./payment.html">Choose Plan</a></button>
+              <button class="btn btn-choose"><a class="text-success text-decoration-none" href="./payment.html">Choose
+                  Plan</a></button>
               <ul>
-                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>Annual Payment</li>
-                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>30% off during launch</li>
-                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>Access to the Balearic Islands
-                  database</li>
-                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>Mobile geolocation in live</li>
-                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>Up to 5 users</li>
-                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>Unlimited buyer profiles</li>
+                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>Real-time geolocation
+                </li>
+                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>Unlimited buyer profiles
+                </li>
+                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>Custom alerts
+                </li>
+                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>Automatic exposé sending</li>
+                <li class="text-white"><i class="fas fa-check text-success bg-white"></i>Limited to one province
+                </li>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-12 col-md-4 mb-4">
-          <div class="card">
+          <div class="card" data-aos="fade-left" data-aos-duration="1000">
             <div class="card-header">
               <h2>Master</h2>
-              <div class="price">168€<span>/month</span></div>
-              <p>(VAT not included)</p>
+              <div class="price">300€<span>/month</span></div>
+              <p>( For Upto Ten Users )</p>
               <p>Offer during the first 3 months</p>
             </div>
             <div class="card-body">
               <button class="btn btn-choose"><a class="text-white text-decoration-none" href="./payment.html">
                   Choose Plan</a></button>
               <ul>
-                <li><i class="fas fa-check"></i>Annual Payment</li>
-                <li><i class="fas fa-check"></i>30% off during launch</li>
-                <li><i class="fas fa-check"></i>All the provinces you want</li>
-                <li><i class="fas fa-check"></i>Mobile geolocation in live</li>
-                <li><i class="fas fa-check"></i>Unlimited buyer profiles</li>
-                <li><i class="fas fa-check"></i>10 professional users</li>
+                <li><i class="fas fa-check"></i>Full access to all provinces
+                </li>
+                <li><i class="fas fa-check"></i>Unlimited profiles
+                </li>
+                <li><i class="fas fa-check"></i>Enhanced control over property </li>
+                <li><i class="fas fa-check"></i>Ability to create 1 administrator profile
+                </li>
+                <li><i class="fas fa-check"></i>Ability to create 4 agent profiles</li>
               </ul>
             </div>
           </div>
@@ -303,14 +313,14 @@
   </section>
   <!-- Blog  -->
 
-  <section style="background-color: rgb(219, 222, 222);" class="pt-5 pb-5">
+  <section id="blog" style="background-color: rgb(219, 222, 222);" class="pt-5 pb-5">
     <div class="container">
       <div class="row text-center">
-        <h1 class="mb-4 mt-3">Blog & Article</h1>
+        <h1 class="mb-4 mt-3" data-aos="fade-right" data-aos-duration="1000">Blog & Article</h1>
       </div>
       <div class="row">
         <div class="col-12 col-md-6 col-lg-4 mb-4">
-          <div class="card h-100 shadow-sm">
+          <div class="card h-100 shadow-sm" data-aos="fade-right" data-aos-duration="1000">
             <img src="/assets/blog1.jpg" alt="images" class="card-img-top blog-img">
             <div class="card-body lh-lg">
               <h5 class="card-text">GeoEstate: Simplify Property Acquisition with the Largest Centralized Database</h5>
@@ -319,7 +329,7 @@
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 mb-4">
-          <div class="card h-100 shadow-sm">
+          <div class="card h-100 shadow-sm" data-aos="fade-down" data-aos-duration="1000">
             <img src="/assets/blog2.jpg" class="card-img-top blog-img" alt="images">
             <div class="card-body lh-lg">
               <h5 class="card-text">Discover Mallorca</h5>
@@ -328,7 +338,7 @@
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4 mb-4">
-          <div class="card h-100 shadow-sm">
+          <div class="card h-100 shadow-sm" data-aos="fade-left" data-aos-duration="1000">
             <img src="/assets/blog3.jpg" class="card-img-top blog-img" alt="images">
             <div class="card-body lh-lg">
               <h5 class="card-text">Why Invest in Luxury Hotels in Mallorca?</h5>
@@ -343,54 +353,95 @@
 
 
   <!-- Testimonial  -->
-  <section class="testimonials py-5">
-    <div class="container">
-      <h2 class="text-center mb-5">What our clients say</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="testimonial-card">
-            <img src="https://via.placeholder.com/100" class="testimonial-img" alt="Cristina Garcia">
-            <h5 class="testimonial-name">Cristina Garcia</h5>
-            <p class="testimonial-role">Real Estate Agent</p>
-            <p class="testimonial-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,
-              pulvinar dapibus leo.
-            </p>
+  <section style=" background-color: #cac8c8; ">
+    <h2 class="text-center pt-5 fw-bold" data-aos="fade-right" data-aos-duration="1000">Testimonial</h2>
+    <div id="testimonial-swiper" class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img class="testimonial-image" src="/assets/testimonial1.png" alt="Client 1" />
+          <div class="testimonial-text">
+            Geostation, under the leadership of CEO Sanan Succie, has brought unmatched efficiency and insight to the
+            real estate process. The innovative tools and support provided made my experience seamless and well-informed
           </div>
+          <div class="testimonial-author">Alex Marquez</div>
+          <div class="testimonial-role">Founder of Agency Partner</div>
         </div>
-        <div class="col-md-4">
-          <div class="testimonial-card">
-            <img src="https://via.placeholder.com/100" class="testimonial-img" alt="They Heal Alone">
-            <h5 class="testimonial-name">They Heal Alone</h5>
-            <p class="testimonial-role">Real Estate Agent</p>
-            <p class="testimonial-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,
-              pulvinar dapibus leo.
-            </p>
-          </div>
+        <div class="swiper-slide">
+          <img class="testimonial-image" src="/assets/testimonial2.png" alt="Client 2" />
+          <div class="testimonial-text">
+            Geostation has transformed the way I work as a real estate agent, providing accurate property data and
+            streamlined processes. Sanan Succie’s leadership ensures top-notch support and innovative tools. It’s a
+            must-have for any real estate professional. </div>
+          <div class="testimonial-author">Jane Smith</div>
+          <div class="testimonial-role">Real Estate Agent </div>
         </div>
-        <div class="col-md-4">
-          <div class="testimonial-card">
-            <img src="https://via.placeholder.com/100" class="testimonial-img" alt="Alex Marquez">
-            <h5 class="testimonial-name">Alex Marquez</h5>
-            <p class="testimonial-role">Real Estate Agent</p>
-            <p class="testimonial-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,
-              pulvinar dapibus leo.
-            </p>
+        <div class="swiper-slide">
+          <img class="testimonial-image" src="/assets/testimonial3.png" alt="Client 3" />
+          <div class="testimonial-text">
+            "I had a wonderful time working with this company. They truly exceeded my expectations!"
           </div>
+          <div class="testimonial-author">Mark Johnson</div>
+          <div class="testimonial-role">Product Manager, Code Sinc Solutions</div>
+        </div>
+        <div class="swiper-slide">
+          <img class="testimonial-image" src="/assets/testimonial1.png" alt="Client 1" />
+          <div class="testimonial-text">
+            Geostation, under the leadership of CEO Sanan Succie, has brought unmatched efficiency and insight to the
+            real estate process. The innovative tools and support provided made my experience seamless and well-informed
+          </div>
+          <div class="testimonial-author">Alex Marquez</div>
+          <div class="testimonial-role">Founder of Agency Partner</div>
         </div>
       </div>
     </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper("#testimonial-swiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: false,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+
+        },
+        autoplay: {
+          delay: 2000, // Time in milliseconds (2 seconds)
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: "#testimonial-swiper .swiper-pagination",
+        },
+        breakpoints: {
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+        },
+      });
+    </script>
   </section>
   <!-- FAQs  -->
   <section class="FAQ pt-5 pb-5">
     <div class="container">
-      <h1 class="faq-title">FAQs</h1>
+      <h1 class="faq-title" data-aos="fade-right" data-aos-duration="1000">FAQs</h1>
       <div class="row">
         <!-- First Column -->
         <div class="col-md-6">
-          <div class="accordion" id="faqColumn1">
+          <div class="accordion" id="faqColumn1" data-aos="fade-right" data-aos-duration="1000">
             <!-- Question 1 -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
@@ -480,7 +531,7 @@
         </div>
         <!-- Second Column -->
         <div class="col-md-6">
-          <div class="accordion" id="faqColumn2">
+          <div class="accordion" id="faqColumn2" data-aos="fade-left" data-aos-duration="1000">
             <!-- Question 6 -->
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingSix">
@@ -566,10 +617,157 @@
       </div>
     </div>
   </section>
+  <!-- contact  -->
+   <div class="parent-contact">
+  
+
+<section id="contact" class="Geo-State-Contact-section my-5 container-fluid">
+  <h1 class="text-center Geo-State-Contact-hero-h1" data-aos="fade-right" data-aos-duration="1000">
+    Contact Us
+</h1>
+    <div class="row p-4">
+        <div class="col-md-6 pe-md-4" data-aos="fade-right" data-aos-duration="1000">
+            <h2 class="fs-4 fw-semibold text-secondary Geo-State-Contact-h2">Contact Us</h2>
+            <p class="text-muted mt-2 w-75">
+                If you're interested in our real estate software, send a message through the form, and one of our sales agents will get in touch with you.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <form class="row g-3" data-aos="fade-left" data-aos-duration="1000">
+                <div class="col-12">
+                    <label for="name" class="form-label text-secondary Geo-State-Contact-label">Name</label>
+                    <input type="text" class="form-control Geo-State-Contact-form-control" id="name" placeholder="Name">
+                </div>
+
+                <div class="col-12">
+                    <label for="email" class="form-label text-secondary Geo-State-Contact-label">Email</label>
+                    <input type="email" class="form-control Geo-State-Contact-form-control" id="email" placeholder="Email">
+                </div>
+
+                <div class="col-12">
+                    <label for="phone" class="form-label text-secondary Geo-State-Contact-label">Phone</label>
+                    <input type="tel" class="form-control Geo-State-Contact-form-control" id="phone" placeholder="Phone">
+                </div>
+
+                <div class="col-12">
+                    <label for="message" class="form-label text-secondary Geo-State-Contact-label">Message</label>
+                    <textarea class="form-control Geo-State-Contact-form-control" id="message" rows="3" placeholder="Message"></textarea>
+                </div>
+
+                <div class="col-12">
+                    <label for="security" class="form-label text-secondary Geo-State-Contact-label">Security: What is 2+3?</label>
+                    <input type="text" class="form-control Geo-State-Contact-form-control" id="security" placeholder="Answer">
+                </div>
+
+                <div class="col-12 d-flex align-items-center">
+                    <input type="checkbox" class="form-check-input me-2" id="privacy">
+                    <label for="privacy" class="form-check-label text-muted">
+                        I have read and accept the site's privacy policies
+                    </label>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary border-0 Geo-State-Contact-btn-form-contact w-100 h-100 rounded-5">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</div>
+  <!-- Footer   -->
+  <footer class="footer-section ">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget company-intro-widget">
+              <a href="index.html" class="site-logo"><img src="/assets/logo.png" alt="logo"></a>
+              <a href="#"></a>
+              <ul class="company-footer-contact-list d-flex">
+                <!-- <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li> -->
+                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                
+              </ul>
+            </div>
+          </div><!-- widget end -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget course-links-widget">
+              <h5 class="widget-title">Services</h5>
+              <ul class="courses-link-list">
+                <li><a  href="#home">Home</a></li>
+                <li><a  href="#price">Price</a></li>
+                <li><a href="#company">Company</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+              </ul>
+            </div>
+          </div><!-- widget end -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget latest-news-widget">
+              <h5 class="widget-title">Get In Touch</h5>
+              <ul class="small-post-list">
+                <li>
+                  <div class="small-post-item d-flex flex-column border-bottom py-2">
+                    <a href="#" class="post-date"><i class="fa-solid fa-phone"></i> +34 666 22 7723
+                    </a>
+                    <a href="#" class="post-date"><i class="fa-solid fa-envelope"></i> lilian.periodista@gmail.com</a>
+                  </div>
+                </li><!-- small-post-item end -->
+                <li>
+                  <div class="small-post-item d-flex flex-column">
+                    <a href="#" class="post-date"><i class="fa-solid fa-location-dot"></i> Josep Pla, <br> &nbsp;&nbsp; 13 mezzanine 108304, Mataró</a>
+                  </div>
+                </li><!-- small-post-item end -->
+              </ul>
+            </div>
+          </div><!-- widget end -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget newsletter-widget">
+              <h5 class="widget-title">Newsletter</h5>
+              <div class="footer-newsletter">
+               
+                <form class="news-letter-form d-flex">
+                  <input type="email" name="news-email" class="h-100" id="news-email" placeholder="Your email address">
+                  <input class="h-100" type="submit" value="Submit">
+                </form>
+              </div>
+            </div>
+          </div><!-- widget end -->
+        </div>
+      </div> 
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-sm-left text-center">
+              <span class="copy-right-text">© 2024 <a href="https://codepen.io/anupkumar92">GeoSate</a> All Rights Reserved <a href="https://codes-inc.com/" class="text-decoration-none text-warning">Codesinc.</a> </span>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <ul class="terms-privacy d-flex justify-content-sm-end justify-content-center">
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div><!-- footer-bottom end -->
+  </footer>
 
 
 
 
+
+<!-- AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init(); // Initialize AOS
+</script>
 
 
 

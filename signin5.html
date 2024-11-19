@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,30 +14,38 @@
       font-family: Arial, sans-serif;
       background-color: #fff;
     }
+
     .header-logo {
       font-size: 24px;
       font-weight: bold;
       color: #333;
       margin: 20px;
     }
+
     .header-logo span {
-      color: #28a745; /* Green color for the triangle */
+      color: #28a745;
+      /* Green color for the triangle */
     }
+
     .card-container {
       max-width: 900px;
       margin: 50px auto;
       text-align: center;
     }
+
     .card {
-      border: 2px solid #28a745; /* Green border */
+      border: 2px solid #28a745;
+      /* Green border */
       border-radius: 10px;
       padding: 20px;
     }
+
     .card h5 {
       font-size: 20px;
       font-weight: bold;
       margin-bottom: 20px;
     }
+
     .option {
       display: inline-block;
       width: 250px;
@@ -49,51 +58,63 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
+
     .option:hover {
-        border: 1px solid #28a745; /* Green border on hover */
+      border: 1px solid #28a745;
+      /* Green border on hover */
     }
+
     .option .icon {
       font-size: 60px;
-      color: #28a745; /* Green icon */
+      color: #28a745;
+      /* Green icon */
       margin-bottom: 10px;
     }
+
     .option .title {
       font-weight: bold;
       font-size: 20px;
       margin-bottom: 5px;
     }
+
     .option .subtitle {
       color: #666;
       font-size: 14px;
     }
   </style>
 </head>
+
 <body>
-    <div class="login-container">
-        <img src="logo-removebg-preview.png" alt="Logo" style="width: 170px; height: auto; margin-left: 20px; margin-top: 10px;">
-      </div>
-  
+  <div class="login-container">
+    <img src="/assets/logo.png" alt="Logo" style="width: 170px; height: auto; margin-left: 20px; margin-top: 10px;">
+  </div>
+
   <div class="card-container">
     <div class="card">
-      <h5>Have you used Betterplace before?</h5>
+      <h5>Have you used GeoEstate</h5>
       <div class="d-flex justify-content-center flex-wrap">
         <!-- Option 1 -->
         <div class="option">
-          <i class="fas fa-medal icon"></i>
-          <div class="title">Never</div>
-          <div class="subtitle">It's my first time</div>
+          <a class="text-decoration-none text-dark" href="/signin6.html"> <i class="fas fa-medal icon"></i>
+            <div class="title">Never</div>
+            <div class="subtitle">It's my first time</div>
+          </a>
         </div>
         <!-- Option 2 -->
         <div class="option">
-          <i class="fas fa-star icon"></i>
-          <div class="title">A bit</div>
-          <div class="subtitle">I have some experience</div>
+          <a class="text-decoration-none text-dark" href="/signin6.html">
+            <i class="fas fa-star icon"></i>
+            <div class="title">A bit</div>
+            <div class="subtitle">I have some experience</div>
+          </a>
         </div>
         <!-- Option 3 -->
         <div class="option">
-          <i class="fas fa-trophy icon"></i>
-          <div class="title">Many times</div>
-          <div class="subtitle">I know the program very well</div>
+          <a class="text-decoration-none text-dark" href="/signin6.html">
+            <i class="fas fa-trophy icon"></i>
+            <div class="title">Many times</div>
+            <div class="subtitle">I know the program very well</div>
+          </a>
         </div>
       </div>
     </div>
@@ -104,4 +125,5 @@
   <!-- FontAwesome Script -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
+
 </html>
