@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Betterplace Login</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+        margin-top: 20px;
+      width: 100%;
+      max-width: 400px; /* Slimmer width */
+      padding: 30px;
+      
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .login-logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .login-logo img {
+      max-width: 120px; /* Adjust logo size */
+    }
+    .form-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .form-control {
+      height: 38px; /* Slimmer input field */
+      font-size: 0.9rem;
+    }
+    .btn {
+      height: 38px; /* Slimmer button */
+      font-size: 0.9rem;
+    }
+    .input-group-text {
+      background-color: #fff;
+      border-left: none;
+      cursor: pointer;
+    }
+    .socialmedia {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .form-control:focus, 
+    .input-group-text:focus {
+      border-color: #28a745 !important; /* Green border */
+      box-shadow: none; /* Subtle green glow */
+      outline: none; /* Remove the default blue outline */
+    }
+    .enterbutton {
+      color: #fcfcfb;
+      background-color: #28a745;
+    }
+    .enterbutton:hover {
+      color: #fcfcfb;
+      background-color: #218838;
+    }
+    .language-dropdown {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+    }
+    .btn-google,
+    .btn-facebook,
+    .btn-apple {
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 38px;
+    }
+    .btn-google i,
+    .btn-facebook i,
+    .btn-apple i {
+        margin-right: 8px;
+    }
+    .newsignup{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 10px;
+        font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="language-dropdown">
+        <select class="form-select form-select-sm" aria-label="Language select">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+        </select>
+    </div>
+  <div class="login-container">
+    <div class="login-logo">
+      <!-- Replace src with your logo path -->
+      <img src="/assets/logo.png" alt="Betterplace Logo">
+    </div>
+    <form>
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your e-mail">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <div class="input-group">
+          <input type="password" class="form-control" id="password" placeholder="Enter your password">
+          <span class="input-group-text" onclick="togglePasswordVisibility()">
+            <i class="bi bi-eye" id="togglePasswordIcon"></i>
+          </span>
+        </div>
+        <div class="mt-1 text-end">
+          <a href="#" class="link-primary">Forgot your password?</a>
+        </div>
+      </div>
+      <button type="submit" class="enterbutton btn btn-success w-100 mb-3"><a class="text-decoration-none text-white" href="/2step.html">Enter</a></button>
+      <div class="text-center mb-2">Or connect with</div>
+    <div class="socialmedia">
+      <button  class="btn btn-google"><i class="bi bi-google"></i> Google</button>
+      <button class="btn btn-facebook"><i class="bi bi-facebook"></i> Facebook</button>
+      <button class="btn btn-apple"><i class="bi bi-apple"></i> Apple</button>
+    </div>
+    <div class="newsignup">
+        <p>New to Betterplace? <a href="#" class="link-primary">Sign Up</a></p>
+    </div>
+    </form>
+  </div>
+
+  <!-- Password Toggle Script -->
+  <script>
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById('password');
+      const toggleIcon = document.getElementById('togglePasswordIcon');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('bi-eye');
+        toggleIcon.classList.add('bi-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('bi-eye-slash');
+        toggleIcon.classList.add('bi-eye');
+      }
+    }
+  </script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

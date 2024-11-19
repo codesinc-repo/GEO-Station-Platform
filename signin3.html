@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Betterplace Survey</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .survey-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #28a745; /* Green border */
+      border-radius: 8px;
+    }
+    .survey-title {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .survey-option {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 100%; /* Ensure equal width */
+      height: 150px; /* Fixed height */
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .survey-option:hover {
+      border: 1px solid #28a745; /* Green border */
+      background-color: #f6fff7; /* Light green background */
+    }
+    .icon {
+      font-size: 3rem; /* Increased icon size */
+      color: #28a745; /* Green icon */
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="/assets/logo.png" alt="Logo" style="width: 170px; height: auto; margin-left: 20px; margin-top: 10px;">
+      </div>
+  <div class="container">
+    <div class="survey-container shadow-sm">
+      <h3 class="survey-title">How did you first discover Betterplace?</h3>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="survey-option">
+            <i class="fas fa-play icon"></i>
+            <p>I've seen it on Youtube</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="survey-option">
+            <i class="fas fa-search icon"></i>
+            <p>Searching on Google</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="survey-option">
+            <i class="fas fa-share-alt icon"></i>
+            <p>I've seen it on Facebook or Instagram</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="survey-option">
+            <i class="fas fa-comment-alt icon"></i>
+            <p>It has been recommended to me</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="survey-option">
+            <i class="fas fa-phone icon"></i>
+            <p>An agent called me</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="survey-option">
+            <i class="fas fa-envelope icon"></i>
+            <p>By mail</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

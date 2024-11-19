@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Position in Company</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .survey-container {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 30px;
+      border: 2px solid #28a745; /* Green border */
+      border-radius: 12px;
+      background: white;
+    }
+    .survey-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      font-weight: bold;
+      color: #333;
+    }
+    .survey-option {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      height: 150px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background-color: #ffffff;
+    }
+    .survey-option:hover {
+      border: 2px solid #28a745; /* Green border on hover */
+    }
+    .icon {
+      font-size: 3rem;
+      color: #28a745; /* Green icon */
+      margin-bottom: 10px;
+    }
+    .survey-option p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="logo-removebg-preview.png" alt="Logo" style="width: 170px; height: auto; margin-left: 20px; margin-top: 10px;">
+      </div>
+  <div class="container">
+    <div class="survey-container shadow-sm">
+      <h3 class="survey-title">What is your position in the company?</h3>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="survey-option">
+            <i class="fas fa-home icon"></i>
+            <p>Real Estate Agent</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="survey-option">
+            <i class="fas fa-user-tie icon"></i>
+            <p>Manager</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="survey-option">
+            <i class="fas fa-building icon"></i>
+            <p>Coordinator/Broker</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="survey-option">
+            <i class="fas fa-ellipsis-h icon"></i>
+            <p>Other</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
