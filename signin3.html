@@ -11,10 +11,10 @@
       font-family: Arial, sans-serif;
     }
     .survey-container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 50px auto;
       padding: 20px;
-      border: 1px solid #28a745; /* Green border */
+      border: 1px solid #28a745;
       border-radius: 8px;
     }
     .survey-title {
@@ -31,64 +31,111 @@
       text-align: center;
       border: 1px solid #ddd;
       border-radius: 8px;
-      width: 100%; /* Ensure equal width */
-      height: 150px; /* Fixed height */
+      width: 100%;
+      height: 150px;
       transition: all 0.3s ease;
       cursor: pointer;
     }
     .survey-option:hover {
-      border: 1px solid #28a745; /* Green border */
-      background-color: #f6fff7; /* Light green background */
+      border: 1px solid #28a745;
+      background-color: #f6fff7;
     }
     .icon {
-      font-size: 3rem; /* Increased icon size */
-      color: #28a745; /* Green icon */
+      font-size: 3rem;
+      color: #28a745;
       margin-bottom: 10px;
+    }
+    .login-container img {
+      width: 170px;
+      height: auto;
+      margin: 20px;
     }
   </style>
 </head>
 <body>
-    <div class="login-container">
-        <img src="/assets/logo.png" alt="Logo" style="width: 170px; height: auto; margin-left: 20px; margin-top: 10px;">
-      </div>
+  <div class="login-container">
+    <img src="./assets/logo.png" alt="Logo">
+  </div>
   <div class="container">
     <div class="survey-container shadow-sm">
-      <h3 class="survey-title">How did you first discover Betterplace?</h3>
+      <h3 class="survey-title">How did you first discover GeoEState?</h3>
       <div class="row g-3">
-        <div class="col-md-4">
+        <div class="col-md-4 col-lg-3">
           <div class="survey-option">
             <i class="fas fa-play icon"></i>
             <p>I've seen it on Youtube</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-lg-3">
           <div class="survey-option">
             <i class="fas fa-search icon"></i>
             <p>Searching on Google</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-lg-3">
           <div class="survey-option">
             <i class="fas fa-share-alt icon"></i>
             <p>I've seen it on Facebook or Instagram</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-lg-3">
           <div class="survey-option">
             <i class="fas fa-comment-alt icon"></i>
             <p>It has been recommended to me</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-lg-3">
           <div class="survey-option">
             <i class="fas fa-phone icon"></i>
             <p>An agent called me</p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-lg-3">
           <div class="survey-option">
             <i class="fas fa-envelope icon"></i>
             <p>By mail</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="survey-option">
+            <i class="fas fa-map-marker-alt icon"></i>
+            <p>Outdoor Advertisement</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="survey-option">
+            <i class="fas fa-tv icon"></i>
+            <p>Television Ad</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="survey-option">
+            <i class="fas fa-newspaper icon"></i>
+            <p>Newspaper Ad</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="survey-option">
+            <i class="fas fa-star icon"></i>
+            <p>Heard from a Celebrity</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="survey-option">
+            <i class="fas fa-bullhorn icon"></i>
+            <p>Radio Ad</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="survey-option">
+            <i class="fas fa-users icon"></i>
+            <p>Community Event</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+          <div class="survey-option">
+            <i class="fas fa-tag icon"></i>
+            <p>Promotional Offer</p>
           </div>
         </div>
       </div>

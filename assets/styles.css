@@ -71,19 +71,19 @@ body{
 }
 @keyframes backgroundChange {
     0% {
-        background-image: url('/assets/bg.png');
+        background-image: url('./bg.png');
     }
     25% {
-        background-image: url('/assets/bg2.jpg');
+        background-image: url('./bg2.jpg');
     }
     50% {
-        background-image: url('/assets/bg.png');
+        background-image: url('./bg.png');
     }
     75% {
-        background-image: url('/assets/bg2.jpg');
+        background-image: url('./bg2.jpg');
     }
     100% {
-        background-image: url('/assets/bg.png'); /* Loop back to the first image */
+        background-image: url('./bg.png'); /* Loop back to the first image */
     }
 }
 .hero h1 {
@@ -173,7 +173,7 @@ body{
   }
   /* Third Section  */
   .bg-img {
-    background-image: url('/assets/bg-section3.png');
+    background-image: url('./bg-section3.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
