@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Map UI</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    /* General Layout */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 100%;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+      z-index: 1000;
+    }
+
+    .sidebar img {
+      width: 50px;
+      height: 30px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    .sidebar li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      cursor: pointer;
+    }
+
+    .sidebar i {
+      color: #fff;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .sidebar i:hover {
+      color: #f0d124;
+    }
+
+    .sidebar .separator {
+      width: 80%;
+      height: 1px;
+      background: #555;
+      margin: 20px 0;
+    }
+
+    .sidebar .logout {
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .top-bar input {
+      padding: 8px 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      width: 300px;
+    }
+    .top-bar input:hover{
+      border: 1px solid #f0d124;
+    }
+
+    .top-bar button {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .top-bar button:hover {
+      background: #f0d124;
+      color: #000;
+    }
+
+    /* Map Buttons */
+    .map-buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .map-buttons button {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .map-buttons button i {
+      font-size: 16px;
+    }
+
+    .map-buttons button:hover {
+      background: #f0d124;
+      color: #000;
+    }
+
+    /* Map View Switch */
+    .view-switch {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .view-switch button {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .__analytic{
+      margin-left: 21px;
+      margin-bottom: 10px;
+    }
+
+    .view-switch button:hover {
+      background: #f0d124;
+      color: #000;
+    }
+    /* Filter Window Styling */
+    
+.__marketreseach{
+  background-color: #000000;
+  color: white;
+}
+.__marketreseach:hover{
+  background-color: #f0d124;
+      color: #000;
+}
+.text-color {
+            color: white;
+            background-color: #000;
+            border: 0;
+            border-radius: 30px;
+            margin-bottom: 10px;
+        }
+
+        .text-color:hover {
+            background-color: #f0d124;
+            color: black;
+
+        }
+        .right-sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background: #fff;
+    border-left: 1px solid #ddd;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .property-listing-section {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .property-listing-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .create-alert-btn {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+
+  .create-alert-btn:hover {
+    background-color: #f0d124;
+  color: #000;
+  }
+  .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #f0d124;
+}
+/* Flex container for the dropdowns */
+/* Flex container for the dropdowns */
+.dropdown-container {
+  display: flex;
+  justify-content: space-between; /* Distribute items evenly */
+  gap: 10px; /* Add space between the dropdowns */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  width: 100%; /* Ensure the container takes the full width */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+  overflow: hidden; /* Hide overflow to prevent horizontal scroll */
+}
+
+/* Styling for each dropdown */
+.dropdown {
+  flex: 1; /* Allow dropdowns to grow and take equal width */
+  min-width: 80px; /* Minimum width for each dropdown */
+  max-width: 200px; /* Limit the maximum width to prevent overflow */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  overflow: hidden; /* Prevent dropdowns from causing overflow */
+}
+
+/* Label styling */
+.dropdown label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* Select dropdown styling */
+.dropdown select {
+  width: 100%; /* Make select element fill the container */
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+  overflow: hidden; /* Prevent overflow inside the select */
+}
+
+/* Styling for filter button */
+.filter-section {
+  margin-top:20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn i {
+  font-size: 18px;
+}
+
+.filter-btn:hover {
+  background-color: #f0d124;
+  color: #000;
+}
+#Myfilters{
+  display:none ;
+  z-index: 1000;
+  background-color: #fff;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 1900px;
+  width: 95%;
+  transition: all 0.3s ease-in-out;
+}
+#Myfilters h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Subheader Style */
+#Myfilters h4 {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* Labels for inputs */
+#Myfilters label {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Select Dropdowns */
+#Myfilters select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Reset Button */
+#Myfilters button {
+  background-color: #000000;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+#Myfilters button:hover {
+  background-color: #f0d124;
+  color: #000;}
+
+/* Responsive styling */
+@media (min-width: 768px) {
+  #Myfilters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* Individual filter elements */
+  #Myfilters label,
+  #Myfilters select {
+    width: 48%;
+  }
+
+  /* Apply spacing for large screens */
+  #Myfilters .filters > div {
+    width: 48%;
+    margin-bottom: 20px;
+  }
+
+  /* Responsive button */
+  #Myfilters button {
+    width: 48%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Stack filters vertically for smaller screens */
+  #Myfilters label,
+  #Myfilters select {
+    width: 100%;
+  }
+
+  /* Button for smaller screens */
+  #Myfilters button {
+    width: 100%;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="map-container">
+    <div id="map"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <img src="./assets/images/login-horizontal.png" alt="Logo">
+      <ul>
+        <li><i class="fas fa-search" title="Search"></i></li>
+        <li><i class="fas fa-house" title="Home"></i></li>
+        <li><i class="fas fa-clipboard " title="Details"></i></li>
+        <li><i class="fas fa-bell" title="Alert"></i></li>
+        <li><i class="fas fa-heart" title="Favourite"></i></li>
+        <i class="__analytic fa-solid fa-chart-simple" title="Analytics"></i>
+        <li> <a href="./profile.html"><i class="fa-solid fa-user" title="User"></i></a></li>
+
+      </ul>
+      <div class="separator"></div>
+      <li><i class="fa-solid fa-right-from-bracket" title="Log out"></i></li>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <input type="text" placeholder="Search location...">
+      <button><i class="fas fa-search"></i></button>
+      <button><i class="fas fa-filter"></i> Filter</button>
+    </div>
+    
+    
+    <!-- Map Buttons -->
+    <div class="map-buttons">
+      <button><i class="fas fa-eraser"></i> Clear Zone</button>
+      <button><i class="fas fa-pencil-alt"></i> Draw Zone</button>
+    </div>
+
+    <!-- Map View Switch -->
+    <div class="view-switch">
+      <button id="roadmap-view">Road Map</button>
+      <button id="satellite-view">Satellite View</button>
+    </div>
+    <div id="market-research" style="display: none; position: absolute; top: 0; left: 60px; width: 300px; height: 100%; background: #fff; z-index: 2000; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); overflow-y: auto;">
+      <h3>Market research</h3>
+      <div style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; text-align: center; background-color: #f8f8f8;">
+        <p style="font-size: 16px; color: #333;">You don't have any market research</p>
+        <p style="font-size: 14px; color: #666;">You currently have no market research saved. You can create your first research from "New Market Research".</p>
+        <button class="__marketreseach" style=" border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">New Market Study</button>
+      </div>
+    </div>
+
+    
+    
+  </div>
+  <div id="home-section" style="display: none; position: absolute; top: 0; left: 60px; width: 300px; height: 100%; background: #fff; z-index: 2000; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); overflow-y: auto;">
+    <h3>Appreciate</h3>
+    <p>Search for the property using any of the following options:</p>
+    <label>
+      <input type="radio" name="search-option" value="address" checked> Address
+    </label>
+    <label>
+      <input type="radio" name="search-option" value="cadastral"> Cadastral reference
+    </label>
+    <div style="margin-top: 10px;">
+      <label>Street and property number</label>
+      <input type="text" placeholder="Enter the street and number" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px; margin-top: 5px;">
+    </div>
+    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+      <button style="background: #ccc; border: none; padding: 10px 20px; border-radius: 5px;">Clean</button>
+      <button class="__marketreseach" style=" border: none; padding: 10px 20px; border-radius: 5px;">Appreciate</button>
+    </div>
+  </div>
+  <div id="alerts-section" style="display: none; position: absolute; top: 0; left: 60px; width: 300px; height: 100%; background: #fff; z-index: 2000; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); overflow-y: auto;">
+    <h3>Alerts</h3>
+    <p>You currently have no alerts.</p>
+    <div style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; text-align: center; background-color: #f8f8f8;">
+      <p style="font-size: 16px; color: #333;">No notifications at this moment.</p>
+      <p style="font-size: 14px; color: #666;">Check back later for updates or set up alert preferences.</p>
+      <button class="__marketreseach" style=" border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Set Alerts</button>
+    </div>
+  </div>
+  <div id="favorites-section" style="display: none; position: absolute; top: 0; left: 60px; width: 300px; height: 100%; background: #fff; z-index: 2000; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); overflow-y: auto;">
+    <h3>Favorites</h3>
+    <p>Your favorite items will appear here.</p>
+    <div class="d-flex justify-content-end mb-3">
+      <a href="#">
+          <button class="text-color fw-bold mt-3" style=" border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">
+              <i class="fas fa-folder-plus me-1 text-color-1"></i> Create folder
+          </button>
+      </a>
+  </div>
+
+    <div style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; text-align: center; background-color: #f8f8f8;">
+      <p style="font-size: 16px; color: #333;">No favorite items yet.</p>
+      <p style="font-size: 14px; color: #666;">Click the heart icon on items to add them here.</p>
+      <button class="__marketreseach" style="border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Explore Items</button>
+    </div>
+  </div>
+
+  
+  <div class="right-sidebar">
+    <div class="property-listing-section">
+        <button class="close-btn">&#x2715;</button> <!-- Close Button (X icon) -->
+        <h2>Property Listings</h2>
+        
+        <!-- Create Alert Button -->
+        <button class="create-alert-btn">Create Alert</button>
+        
+        <!-- Housing Dropdown -->
+        <div class="dropdown-container">
+          <div class="dropdown">
+            <select id="housing" name="housing">
+              <option value="house">House</option>
+              <option value="house">House</option>
+              <option value="condo">Condo</option>
+              <option value="villa">Villa</option>
+            </select>
+          </div>
+        
+          <div class="dropdown">
+            <select id="all" name="all">
+              <option value="All">All</option>
+              <option value="price-high-low">Price: High to Low</option>
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
+        
+          <div class="dropdown">
+            <select id="sale" name="sale">
+              <option value="sale">Sale</option>
+              <option value="price-high-low">Price: High to Low</option>
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <button class="filter-btn"><i class="fas fa-plus"></i> Filter</button>
+          <div class="dropdown" style="margin-left: 20px;">
+            <select id="sale" name="sale">
+              <option value="sale">Sort By</option>
+              <option value="price-high-low">Price: High to Low</option>
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+          </div>
+        </div>
+        <div id="Myfilters">
+          <h3>Filter Properties</h3>
+  
+          <h4>Main Filters</h4>
+          
+          <!-- Selectable Version -->
+          <label for="version">Select Version</label>
+          <select id="version" name="version">
+            <option value="1">Version 1</option>
+            <option value="2">Version 2</option>
+          </select>
+        
+          <!-- Sort By -->
+          <label for="sortby">Sort By</label>
+          <select id="sortby" name="sortby">
+            <option value="time-desc">Time on Market (most to least)</option>
+            <option value="time-asc">Time on Market (least to most)</option>
+            <option value="price-asc">Price Ascending</option>
+            <option value="price-desc">Price Descending</option>
+            <option value="price-perm2-asc">Price per m² Ascending</option>
+            <option value="price-perm2-desc">Price per m² Descending</option>
+          </select>
+        
+          <!-- Location -->
+          <h4>Location</h4>
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+            <option value="germany">Germany</option>
+          </select>
+        
+          <label for="community">Community</label>
+          <select id="community" name="community">
+            <option value="suburb">Suburb</option>
+            <option value="city">City</option>
+          </select>
+        
+          <label for="municipality">Municipality</label>
+          <select id="municipality" name="municipality">
+            <option value="newyork">New York</option>
+            <option value="berlin">Berlin</option>
+          </select>
+        
+          <label for="city">City/Neighborhood</label>
+          <select id="city" name="city">
+            <option value="downtown">Downtown</option>
+            <option value="uptown">Uptown</option>
+          </select>
+        
+          <!-- Price -->
+          <h4>Price</h4>
+          <label for="min-price">Min Price</label>
+          <select id="min-price" name="min-price">
+            <option value="0">0</option>
+            <option value="100000">100,000</option>
+            <option value="200000">200,000</option>
+          </select>
+        
+          <label for="max-price">Max Price</label>
+          <select id="max-price" name="max-price">
+            <option value="1000000">1,000,000</option>
+            <option value="2000000">2,000,000</option>
+          </select>
+        
+          <!-- Surface Area -->
+          <h4>Surface Area</h4>
+          <label for="min-surface">Min Surface (m²)</label>
+          <select id="min-surface" name="min-surface">
+            <option value="0">0</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        
+          <label for="max-surface">Max Surface (m²)</label>
+          <select id="max-surface" name="max-surface">
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+          </select>
+        
+          <!-- Property Type -->
+          <h4>Property Type</h4>
+          <label for="property-type">Property Type</label>
+          <select id="property-type" name="property-type">
+            <option value="residential">Residential</option>
+            <option value="commercial">Commercial</option>
+          </select>
+        
+          <label for="property-condition">Property Condition</label>
+          <select id="property-condition" name="property-condition">
+            <option value="new">New Construction</option>
+            <option value="good">Good Condition</option>
+            <option value="used">Used</option>
+            <option value="renovated">Renovated</option>
+          </select>
+        
+          <!-- Advanced Filters -->
+          <h4>Advanced Filters</h4>
+          
+          <!-- Property Features -->
+          <label for="features">Property Features</label>
+          <select id="features" name="features">
+            <option value="swimming-pool">Swimming Pool</option>
+            <option value="garage">Garage</option>
+            <option value="elevator">Elevator</option>
+          </select>
+        
+          <!-- View/Orientation -->
+          <label for="view-orientation">View/Orientation</label>
+          <select id="view-orientation" name="view-orientation">
+            <option value="sea">Sea View</option>
+            <option value="mountain">Mountain View</option>
+          </select>
+        
+          <!-- Accessibility -->
+          <label for="accessibility">Accessibility</label>
+          <select id="accessibility" name="accessibility">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        
+          <!-- Type of Operation -->
+          <label for="operation">Type of Operation</label>
+          <select id="operation" name="operation">
+            <option value="sale">Sale</option>
+            <option value="rent">Rent</option>
+            <option value="transfer">Transfer</option>
+          </select>
+        
+          <!-- Submit / Reset button -->
+           <br>
+          
+          <button type="reset">Reset Filters</button>
+      </div>
+    </div>
+</div>
+
+
+
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([40.463667, -3.74922], 6);
+
+    const roadLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    const satelliteLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png');
+
+    roadLayer.addTo(map);
+
+    document.getElementById('roadmap-view').addEventListener('click', () => {
+      map.removeLayer(satelliteLayer);
+      map.addLayer(roadLayer);
+    });
+
+    document.getElementById('satellite-view').addEventListener('click', () => {
+      map.removeLayer(roadLayer);
+      map.addLayer(satelliteLayer);
+    });
+    const homeIcon = document.querySelector('.fa-house');
+  const homeSection = document.getElementById('home-section');
+
+  homeIcon.addEventListener('click', () => {
+    homeSection.style.display = homeSection.style.display === 'none' ? 'block' : 'none';
+  });
+
+
+
+const clipboardIcon = document.querySelector('.fa-clipboard');
+const marketResearchSection = document.getElementById('market-research');
+
+clipboardIcon.addEventListener('click', () => {
+  marketResearchSection.style.display = marketResearchSection.style.display === 'none' ? 'block' : 'none';
+});
+const bellIcon = document.querySelector('.fa-bell');
+const alertsSection = document.getElementById('alerts-section');
+
+bellIcon.addEventListener('click', () => {
+  alertsSection.style.display = alertsSection.style.display === 'none' ? 'block' : 'none';
+});
+const heartIcon = document.querySelector('.fa-heart'); // Assuming your heart icon has this class
+const favoritesSection = document.getElementById('favorites-section');
+
+// Toggle display of the favorites section
+heartIcon.addEventListener('click', () => {
+    favoritesSection.style.display = favoritesSection.style.display === 'none' ? 'block' : 'none';
+});
+document.querySelector('.close-btn').addEventListener('click', function() {
+  document.querySelector('.right-sidebar').style.display = 'none';
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const filterButton = document.querySelector(".filter-btn");
+    const filterSection = document.querySelector("#Myfilters");
+
+    // Check if both elements exist to avoid errors
+    if (filterButton && filterSection) {
+      filterButton.addEventListener("click", function() {
+        // Toggle the display style of the filter section
+        if (filterSection.style.display === "none" || !filterSection.style.display) {
+          filterSection.style.display = "block"; // Show the filter section
+        } else {
+          filterSection.style.display = "none"; // Hide the filter section
+        }
+      });
+    } else {
+      console.error("Filter button or filter section not found in the DOM.");
+    }
+  });
+  </script>
+</body>
+</html>
+
+  </script>
